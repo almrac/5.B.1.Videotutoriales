@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>4. Creación de DIV con JS</title>
 	<style>
 		body {
@@ -36,6 +36,39 @@
 			line-height: 1.5;
 		}
 
+		#contenedor {
+			margin-top: 1rem;
+			padding: 1rem;
+			border-radius: 0.75rem;
+			background: #f8fafc;
+			border: 1px solid #cbd5e1;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 1rem;
+			justify-content: space-between;
+		}
+
+		.tarjeta-jugador {
+			padding: 0.75rem;
+			margin-bottom: 0.75rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 0.75rem;
+			background: #fff;
+			max-width: 44%;
+		}
+
+		.foto-jugador {
+			width: 100%;
+			max-width: 100%;
+			aspect-ratio: 3 / 4;
+			object-fit: cover;
+			border-radius: 0.6rem;
+			border: 1px solid #cbd5e1;
+			display: block;
+			margin-bottom: 0.6rem;
+		}
+
 		.volver {
 			display: inline-block;
 			margin-top: 1rem;
@@ -55,8 +88,78 @@
 <body>
 	<main>
 		<h1>4. Creación de DIV con JS</h1>
-		<p>Plantilla preparada con el mismo estilo visual para mantener coherencia entre ejercicios.</p>
+		<p>Jugadores del Real Madrid</p>
+		<div id="contenedor"></div>
 		<a class="volver" href="../index.html">Volver al índice</a>
 	</main>
+	<script>
+		// Array de objetos: cada objeto guarda los datos de un jugador.
+		let jugadores = [
+			// Propiedades básicas del jugador.
+			{
+				nombre: "Mbappe",
+				edad: 28,
+				ficha: 200000000,
+				foto: "mbappe.jpg",
+			},
+			{
+				nombre: "Valverde",
+				edad: 26,
+				ficha: 189072513,
+				foto: "valverde.jpg",
+			},
+			{
+				nombre: "Carvajal",
+				edad: 34,
+				ficha: 202351035,
+				foto: "carvajal.jpg",
+			},
+			{
+				nombre: "Vinicius",
+				edad: 27,
+				ficha: 192351035,
+				foto: "vinicius.jpg",
+			}
+		]
+
+		// Recorremos el array y creamos una tarjeta por cada jugador.
+		for (let i = 0; i < jugadores.length; i++) {
+			// Obtenemos el objeto jugador de la posición actual.
+			let jugador = jugadores[i];
+
+			// Guardamos sus datos en variables para trabajar de forma más clara.
+			let nombreJugador = jugador.nombre;
+			let edadJugador = jugador.edad;
+			let fichaJugador = jugador.ficha;
+
+			// Creamos la estructura HTML de la tarjeta en memoria.
+			let nuevaTarjeta = document.createElement("div");
+			nuevaTarjeta.classList.add("tarjeta-jugador");
+			let tituloJugador = document.createElement("h2");
+
+			let tituloEdad = document.createElement("h4");
+			tituloEdad.innerHTML = "Edad: " + edadJugador;
+
+			let tituloFicha = document.createElement("h4");
+			tituloFicha.innerHTML = "Ficha: " + fichaJugador;
+
+
+			// Insertamos el nombre del jugador en el encabezado (<h2>).
+			tituloJugador.innerHTML = nombreJugador;
+
+			// Creamos la imagen del jugador y le asignamos ruta, texto alternativo y clase CSS.
+			let nuevaFoto = document.createElement("img");
+			nuevaFoto.src = "imagenes/" + jugador.foto;
+			nuevaFoto.alt = "Foto de " + nombreJugador;
+			nuevaFoto.classList.add("foto-jugador");
+
+			// Añadimos los elementos a la tarjeta y luego la tarjeta al contenedor principal.
+			nuevaTarjeta.appendChild(nuevaFoto);
+			nuevaTarjeta.appendChild(tituloJugador);
+			nuevaTarjeta.appendChild(tituloEdad);
+			nuevaTarjeta.appendChild(tituloFicha);
+			document.getElementById("contenedor").appendChild(nuevaTarjeta);
+		}
+	</script>
 </body>
 </html>
