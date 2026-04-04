@@ -71,7 +71,9 @@
 	</main>
 
 	<script>
+		// Array inicial con cursos.
 		let cursos = ["1eso", "2eso", "3eso", "4eso"];
+		// push agrega un elemento al final del array.
 		cursos.push("1smr");
 		// cursos.pop();
 		// cursos.pop();
@@ -79,18 +81,23 @@
 		// cursos.reverse();
 		// cursos.sort();
 		// cursos.unshift("1bach");
+		// splice(2, 1): desde el indice 2 elimina 1 elemento ("3eso").
 		cursos.splice(2,1);
 		// cursos=cursos.map(function(c) {
 		// 	return c+"Bosco"
 		// });
 
+		// map recorre el array y crea uno nuevo transformando cada valor.
 		cursos = cursos.map(c => c + "Bosco");
+		// indexOf busca la posicion del elemento exacto.
+		// Como ahora todos terminan en "Bosco", "1eso" no existe y devuelve -1.
 		alert(cursos.indexOf("1eso"));
 
 		// for (let i = 0; i < cursos.length; i++) {
 		// 	document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + "<br>" + cursos[i];
 		// }
 
+		// Recorremos el array con for...of y pintamos cada curso en el DOM.
 		for (let curso of cursos ){
 			document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + "<br>" + curso;
 

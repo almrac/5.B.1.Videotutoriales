@@ -60,28 +60,37 @@
 	</main>
 
 	<script>
+		// Definimos una clase (plantilla) para crear objetos Alumno.
 		class Alumno {
+			// El constructor se ejecuta al hacer "new Alumno(...)"
+			// y guarda los datos recibidos dentro del objeto.
 			constructor(nombre, apellidos, edad, calle, numero, poblacion) {
 				this.nombre = nombre;
 				this.apellidos = apellidos;
 				this.edad = edad;
+				// Guardamos la direccion como un objeto anidado.
 				this.domicilio = {
 					calle: calle,
 					numero: numero,
 					poblacion: poblacion
 				};
 			}
+			// Metodo de la clase para mostrar un saludo con datos del alumno.
 			saludar() {
 				alert("Hola me llamo " + this.nombre + " " + this.apellidos + " y vivo en " + this.domicilio.calle + " " + this.domicilio.numero + " de " + this.domicilio.poblacion);
 			}
 		}
 
+		// Creamos dos instancias de la clase Alumno.
 		let pepe = new Alumno("Pepe", "López", "23", "Norte", 3, "Alcázar");
+		// En esta instancia faltan datos de domicilio; quedaran como undefined.
 		let maria = new Alumno("María", "González", "23");
 
+		// Llamamos al metodo saludar de cada objeto.
 		pepe.saludar();
 		maria.saludar();
 
+		// Objeto literal: se crea directamente sin usar class.
 		let alumno1 = {
 			nombre: "Carlos",
 			apellidos: "Navarro",
@@ -91,10 +100,12 @@
 				numero: "22",
 				poblacion: "Alcázar"
 			},
+			// Metodo dentro del objeto literal.
 			saludar: function() {
 				alert("Hola, me llamo " + this.nombre + " " + this.apellidos);
 			}
 		};
+		// Segundo objeto literal con la misma estructura.
 		let alumno2 = {
 			nombre: "María",
 			apellidos: "Pérez",
@@ -109,6 +120,7 @@
 			}
 		};
 
+		// Ejecutamos los metodos de ambos objetos literales.
 		alumno1.saludar();
 		alumno2.saludar();
 	</script>
