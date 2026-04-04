@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script>
+		class Alumno {
+			constructor (nombre, apellidos, edad, calle, numero, poblacion) {
+				this.nombre = nombre;
+				this.apellidos = apellidos;
+				this.edad = edad;
+				this.domicilio = {
+					calle:calle,
+					numero:numero,
+					poblacion:poblacion
+				};
+			}
+			saludar(){
+				alert("Hola me llamo " + this.nombre + " " + this.apellidos + " y vivo en " + this.domicilio.calle + " " + this.domicilio.numero + " de " + this.domicilio.poblacion);
+			}
+		}
+
+		let pepe = new Alumno("Pepe", "López", "23", "Norte", 3, "Alcázar");
+		// alert(pepe.nombre + " " + pepe.apellidos + " tiene " + pepe.edad + " años.");
+		let maria = new Alumno("María","González","23");
+		// alert(maria.nombre + " " + maria.apellidos  + " Tiene " + maria.edad + " años");
+
+		pepe.saludar();
+		maria.saludar();
+
+		let alumno1 = {
+			nombre: "Carlos",
+			apellidos: "Navarro",
+			edad: 21,
+			domicilio: {
+				calle:  "Norte",
+				numero: "22",
+				poblacion: "Alcázar",
+			},
+			saludar: function (){
+				alert("Hola, me llamo " + this.nombre + " " + this.apellidos);
+			}
+		}
+		let alumno2 = {
+			nombre: "María",
+			apellidos: "Pérez",
+			edad: 21,
+			domicilio: {
+				calle:  "mediodía",
+				numero: "26",
+				poblacion: "Villafranca de los Caballeros",
+			},
+			saludar: function (){
+				alert("Hola, me llamo " + this.nombre + " " + this.apellidos);
+			}
+		}
+/*		alert(alumno1.domicilio.poblacion);
+		alert(alumno2.nombre + "" + alumno2.apellidos);*/
+
+		alumno1.saludar();
+		alumno2.saludar();
+
+/*		console.log(alumno1.domicilio.poblacion);
+		console.log(alumno2.nombre + "" + alumno2.apellidos);*/
+	</script>
+
+</body>
+</html>
