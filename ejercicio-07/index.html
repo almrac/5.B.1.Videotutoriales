@@ -32,13 +32,21 @@
 			margin-bottom: 0.75rem;
 		}
 
-		p {
-			line-height: 1.5;
-		}
+			p {
+				line-height: 1.5;
+			}
 
-		.volver {
-			display: inline-block;
-			margin-top: 1rem;
+			#display {
+				margin-top: 1rem;
+				padding: 1rem;
+				border-radius: 0.75rem;
+				background: #f8fafc;
+				border: 1px solid #cbd5e1;
+			}
+
+			.volver {
+				display: inline-block;
+				margin-top: 1rem;
 			padding: 0.7rem 1rem;
 			border-radius: 0.7rem;
 			background: #e2e8f0;
@@ -53,10 +61,17 @@
 	</style>
 </head>
 <body>
-	<main>
-		<h1>7. Pasar de XML a JSON</h1>
-		<p>Plantilla preparada con el mismo estilo visual para mantener coherencia entre ejercicios.</p>
-		<a class="volver" href="../index.html">Volver al índice</a>
-	</main>
-</body>
+		<main>
+			<h1>7. Pasar de XML a JSON</h1>
+			<p>Plantilla preparada con el mismo estilo visual para mantener coherencia entre ejercicios.</p>
+			<div id="display"></div>
+			<a class="volver" href="../index.html">Volver al índice</a>
+		</main>
+	<script>
+	fetch('micliente.json')
+        .then(response => response.json())
+        .then(cliente => alert(cliente.nombre));
+
+	</script>
+	</body>
 </html>
