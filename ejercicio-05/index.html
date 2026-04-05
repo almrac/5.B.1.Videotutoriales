@@ -35,6 +35,27 @@
 		p {
 			line-height: 1.5;
 		}
+		#display {
+			margin-top: 1rem;
+			padding: 1rem;
+			border-radius: 0.75rem;
+			background: #f8fafc;
+			border: 1px solid #cbd5e1;
+		}
+		button {
+			padding: 0.85rem 1.2rem;
+			border: none;
+			border-radius: 0.7rem;
+			background: #2563eb;
+			color: #ffffff;
+			font-size: 1rem;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background: #1d4ed8;
+		}
 
 		.volver {
 			display: inline-block;
@@ -56,7 +77,23 @@
 	<main>
 		<h1>5. Chuleta JSON</h1>
 		<p>Plantilla preparada con el mismo estilo visual para mantener coherencia entre ejercicios.</p>
+			<div id="display">
+				<!-- Botón principal: mantiene el id para poder capturarlo desde JavaScript -->
+				<button id="descargarpdf" type="button">Descargar chula JSON</button>
+			</div>
+
 		<a class="volver" href="../index.html">Volver al índice</a>
-	</main>
-</body>
+		</main>
+
+		<script>
+			// 1) Seleccionamos el botón del DOM por su id.
+			const botonDescargaPdf = document.getElementById('descargarpdf');
+
+			// 2) Escuchamos el evento click para ejecutar una acción.
+			botonDescargaPdf.addEventListener('click', () => {
+				// 3) Abrimos el PDF en una nueva pestaña.
+				window.open('https://drive.google.com/file/d/1bvL2MK1db8EuDz_rATWwl5gmiXeQ4gms/view', '_blank');
+			});
+		</script>
+	</body>
 </html>
